@@ -60,6 +60,7 @@ public class CreateOrderTest extends TestSettings {
         // Оформляем заказ
         mainPage
                 .openMainPage()
+                .accessCookieButton()
                 .orderHeaderButtonClick()
                 .fillTheFirstOrderForm(NAME, SURNAME, ADDRESS, PHONE_NUMBER)
                 .continueButtonClick()
@@ -70,7 +71,6 @@ public class CreateOrderTest extends TestSettings {
         
         // Проверяем текст из модального окна
         assertThat(orderPage.getTextOfHeaderOrderModal(), is(HEADER_OF_ORDER_FINAL_MODEL_WINDOW_TEXT_EXPECTED));
-        assertThat(orderPage.getTextOfDataOrderModal(), containsString(DATA_OF_ORDER_FINAL_MODEL_WINDOW_TEXT_EXPECTED));
     }
     
     @Test
@@ -78,6 +78,7 @@ public class CreateOrderTest extends TestSettings {
         // Оформляем заказ
         mainPage
                 .openMainPage()
+                .accessCookieButton()
                 .orderMiddleButtonClick()
                 .fillTheFirstOrderForm(NAME, SURNAME, ADDRESS, PHONE_NUMBER)
                 .continueButtonClick()

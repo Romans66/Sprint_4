@@ -43,6 +43,10 @@ public class MainPage extends PageSettings {
     private By orderStatusInput = By.xpath("//input[@class='Input_Input__1iN_Z Header_Input__xIoUq']");
     private By finalOrderStatusButton = By.xpath("//button[text()='Go!']");
     
+    // Кнопка куки
+    private By cookieAccess = By.xpath("//button[@class='App_CookieButton__3cvqF']");
+    
+    
     public MainPage openMainPage() {
         driver.get(URL_MAIN_PAGE);
         return this;
@@ -50,6 +54,12 @@ public class MainPage extends PageSettings {
     
     public String getMainPageURL() {
         return URL_MAIN_PAGE;
+    }
+    
+    // клик на кнопку принять куки
+    public MainPage accessCookieButton() {
+        driver.findElement(cookieAccess).click();
+        return this;
     }
     
     // Извлекаем текст из ответов и вопросов (помещаем в мап) и проверяем, что они отображаются
